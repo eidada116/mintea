@@ -1,0 +1,154 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+body{
+    background-color: 
+    #2d211b;
+}
+h2{
+    text-align: center;
+    margin: auto;
+    padding-top:50px;
+    padding-bottom: 3px;
+    color:#f0e2dd
+}
+
+.ribbon a{
+    padding:50px;
+    color: #f0e2dd;
+
+}
+.ribbon a:hover{
+    color:#683d39
+}
+.ribbon{
+    text-align: center ;
+    margin:auto;
+    margin-bottom: 50px;
+    border-top: 
+    #683d39 5px solid;
+    border-bottom: 
+    #683d39 7px double;
+    padding:5px
+}
+
+
+.cart-icon {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+  
+  .cart-icon img {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .cart-count {
+    background-color: #ff6347;
+    color: #fff;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: -10px;
+    margin-top: -10px;
+  }
+  
+  .cart-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+  }
+.login{
+  margin: auto;
+  width:50%;
+  padding: 10px;
+  background-color: #f0e2dd;
+  overflow: hidden;
+  border-radius: 20px;
+  border: #683d39 5px double
+}
+#photo, #page{
+  display: flex;
+  flex-direction: row;
+}
+#photo{
+  width:50%;
+  background-image: url("/images/cheesecakebites.jpg");
+}
+h1{
+  text-align: center;
+  color: #683d39;
+}
+.input-box{
+  width:100%;
+  height:50px;
+  background-color:#463534;
+  color:#93615c;
+  margin: 30px 0;
+  border-radius: 15px;
+  position:relative
+}
+.input-box input{
+  width:100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  color:#93615c;
+  outline: none;
+  border: 2px solid rgba(255,255,255,.2)
+}
+.input-box i{
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px
+}
+.remember label input{
+  margin-right: 3px;
+}
+.remember a:hover{
+  text-decoration: underline;
+}
+
+.remember a{
+  color:brown;
+  text-decoration: none;
+}
+.remember{
+  display:flex;
+  justify-content: space-between;
+  font-size: 14.5px;
+ 
+}
+button{
+  margin-top: 20px;
+  align-items: center;
+}
+.btn{
+  width:100%;
+  height: 45px;
+  background:#683d39;
+  border:none;
+  outline:none;
+  border-radius: 40px;
+  box-shadow: 0 0 10px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #f0e2dd;
+  font-weight: 600;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
