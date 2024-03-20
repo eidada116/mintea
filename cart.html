@@ -37,22 +37,18 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script>
             $(document).ready(function(){
-                // Function to fetch cart items and calculate total price
                 function fetchCartItems() {
                     $.ajax({
                         url: "get_cart_items.php",
                         type: "GET",
                         dataType: "json",
                         success: function(data){
-                            var totalPrice = 0; // Initialize total price
-                            // Update the HTML table with the cart items
-                            $("#cartItems").empty(); // Clear existing items
+                            var totalPrice = 0; 
+                            $("#cartItems").empty(); 
                             $.each(data, function(index, item) {
                                 $("#cartItems").append("<tr><td>" + item.productName + "</td><td>" + item.productPrice + " Php</td><td><button class='removeItem' data-product='" + item.productName + "'>Remove</button></td></tr>");
-                                // Add item price to total price
                                 totalPrice += parseFloat(item.productPrice);
                             });
-                            // Update total price in HTML
                             $("#totalPrice").text(totalPrice.toFixed(2) + " Php");
                         },
                         error: function(){
@@ -60,11 +56,8 @@
                         }
                     });
                 }
+                    fetchCartItems();
     
-                // Initial fetch
-                fetchCartItems();
-    
-                // Remove item from cart
                 $(document).on('click', '.removeItem', function(){
                     var productName = $(this).data('product');
                     $.ajax({
@@ -72,7 +65,6 @@
                         type: "POST",
                         data: { productName: productName },
                         success: function(){
-                            // Refresh cart items
                             fetchCartItems();
                         },
                         error: function(){
