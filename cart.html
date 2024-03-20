@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <title>MINITEA SNACKS</title>
+        <link rel="stylesheet" href="style.css" type="text/css" media="all">
+        <style>
+            #contain{
+                margin: auto;
+                width:50%;
+                padding: 10px;
+                background-color: #f0e2dd;
+                border:#683d39 5px dashed;
+                overflow: hidden;
+            }
+            table{
+                margin:auto;
+                width:90%;
+                border: #683d39 2px solid
+            }
+            th{
+                text-align: center;
+                color:#f0e2dd;
+                background-color: #683d39;
+            }
+            td{
+                text-align: center;
+                padding:10px;
+                color:#f0e2dd;
+                background-color: #75271e;
+            }
+            h1{
+                text-align: center;
+            }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                // Function to fetch cart items and calculate total price
+                function fetchCartItems() {
+                    $.ajax({
+                        url: "get_cart_items.php",
+                        type: "GET",
+                        dataType: "json",
+                        success: function(data){
+                            var totalPrice = 0; // Initialize total price
+                            // Update the HTML table with the cart items
+                            $("#cartItems").empty(); // Clear existing items
+                            $.each(data, function(index, item) {
+                                $("#cartItems").append("<tr><td>" + item.productName + "</td><td>" + item.productPrice + " Php</td><td><button class='removeItem' data-product='" + item.productName + "'>Remove</button></td></tr>");
+                                // Add item price to total price
+                                totalPrice += parseFloat(item.productPrice);
+                            });
+                            // Update total price in HTML
+                            $("#totalPrice").text(totalPrice.toFixed(2) + " Php");
+                        },
+                        error: function(){
+                            alert("Error: Unable to fetch cart items.");
+                        }
+                    });
+                }
+    
+                // Initial fetch
+                fetchCartItems();
+    
+                // Remove item from cart
+                $(document).on('click', '.removeItem', function(){
+                    var productName = $(this).data('product');
+                    $.ajax({
+                        url: "remove_from_cart.php",
+                        type: "POST",
+                        data: { productName: productName },
+                        success: function(){
+                            // Refresh cart items
+                            fetchCartItems();
+                        },
+                        error: function(){
+                            alert("Error: Unable to remove item from cart.");
+                        }
+                    });
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div class="header">
+         
+            <h2><span style="color:#75271e">Minitea</span> & Snacks</h2>
+            
+            <!--MENU RIBBON-->
+            <div class="ribbon">
+                <a href="index.html" style="color:#75271e;">Home</a>
+                <a href="snacks.html">Order</a>
+                <a href="contact.html">Contact</a>
+                <a href="about.html">About</a>
+                <a href="logine.php">Log in</a>
+            </div>
+        </div>
+
+        <div id="contain">
+            <h1>Your Cart</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Price</th>
+                        <th>Action</th>
+                        
+                    </tr>
+                </thead>
+                <tbody id="cartItems"></tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="1" style="text-align: right;"><strong>Total:</strong></td>
+                        <td id="totalPrice"></td>
+                        <td><a href="ordering.html"><button style="width:100px; height:30px">Order Now</button></a></td>
+                    </tr>
+
+                </tfoot>
+            </table>
+        </div>
+        
+        
+    </body>
+</html>

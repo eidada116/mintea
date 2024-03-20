@@ -5,21 +5,23 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <title>MINITEA SNACKS</title>
         <link rel="stylesheet" href="orderstyle.css" type="text/css" media="all">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
-    <body>
 
+
+    <body>
         <div class="cart-icon">
             <a href="cart.html"><img src="images/cart_logo.png" alt="Shopping Cart"></a>
             <div class="cart-count" id="cartCount">0</div>
-          </div>
-          
-          <div class="cart-overlay" id="cartOverlay">
+        </div>
+    
+        <div class="cart-overlay" id="cartOverlay">
             <div class="cart-content">
-              <h3>Shopping Cart</h3>
-              <ul id="cartItems">
-              </ul>
+                <h3>Shopping Cart</h3>
+                <ul id="cartItems">
+                </ul>
             </div>
-          </div>
+        </div>
 
         <div class="header">
          
@@ -31,7 +33,7 @@
                 <a href="snacks.html" style="color:#75271e;">Order</a>
                 <a href="contact.html">Contact</a>
                 <a href="about.html">About</a>
-                <a href="login.html">Log in</a>
+                <a href="logine.php">Log in</a>
             </div>
 
             <div class="main">
@@ -41,64 +43,58 @@
             </div>
 
             <h3 id="nya">Snacks</h3>
-            <div class="snacks">
+            <div class="snacks" id="snacks-container">
 
-                <div class="rowOne">
-                    <div id="snackOne">
+                <div class="rowOne" >
+                    <div id="snackOne" data-product-id="1">
                         <img id="p" src="images/cheesecakebites.jpg"><br>
-                        <img id="n" src="images/coffee.gif">
                         <span>Lune's Cheescake Bites</span>
                         <p><strong>250 Php</strong></p>
                         <button>Order</button>
                     </div>
-                    <div id="snackTwo">
+                    <div id="snackTwo" data-product-id="2">
                         <img id="p" src="images/macarons.jpg"><br>
-                        <img id="n" src="images/coffee.gif">
+                       
                         <span>Luca's Cu-tea Macarons</span>
                         <p><strong>200 Php</strong></p>
                         <button>Order</button>
                     </div>
-                    <div id="snackThree">
+                    <div id="snackThree" data-product-id="4">
                         <img id="p" src="images/doublechoco.jpg"><br>
-                        <img id="n" src="images/coffee.gif">
+                        
                         <span>Myra's Double Choco Bites</span>
                         <p><strong>230 Php</strong></p>
                         <button>Order</button>
                     </div>
-                    <div id="snackFour">
+                    <div id="snackFour" data-product-id="3">
                         <img id="p" src="images/choco.jpg"><br>
-                        <img id="n" src="images/coffee.gif">
                         <span>Yuyu's Choco Delight</span>
                         <p><strong>200 Php</strong></p>
                         <button>Order</button>
                     </div>
                 </div>
 
-                <div class="rowTwo">
-                    <div id="One">
+                <div class="rowTwo" >
+                    <div id="One" data-product-id="5">
                         <img id="p" src="images/custard.jpg"><br>
-                        <img id="n" src="images/coffee.gif">
                         <span>Yuyu's Custardy Sweetness</span>
                         <p><strong>200 Php</strong></p>
                         <button>Order</button>
                     </div>
-                    <div id="Two">
+                    <div id="Two" data-product-id="6">
                         <img id="p" src="images/bark.jpg"><br>
-                        <img id="n" src="images/coffee.gif">
                         <span>Lune's BlueChoco Bark</span>
                         <p><strong>250 Php</strong></p>
                         <button>Order</button>
                     </div>
-                    <div id="Three">
+                    <div id="Three" data-product-id="7">
                         <img id="p" src="images/mamochi.jpg"><br>
-                        <img id="n" src="images/coffee.gif">
                         <span>Myra's Matcha Mochi</span>
                         <p><strong>150 Php</strong></p>
                         <button>Order</button>
                     </div>
-                    <div id="Four">
+                    <div id="Four" data-product-id="8">
                         <img id="p" src="images/pan.jpg"><br>
-                        <img id="n" src="images/coffee.gif">
                         <span>Luca's Crunchy Pan-da!</span>
                         <p><strong>300 Php</strong></p>
                         <button>Order</button>
@@ -108,32 +104,28 @@
 
             <h3 id="nya">Tea Blends</h3>
 
-            <div class="snacks">
+            <div class="snacks" id="tea-container">
                 <div class="rowOne">
-                    <div id="One">
+                    <div id="One" data-product-id="9">
                         <img id="p" src="images/yuzu.jpg"><br>
-                        <img id="n" src="images/coffee.gif">
                         <span>Luca's Afternoon Lemon Tea</span>
                         <p><strong>200 Php</strong></p>
                         <button>Order</button>
                     </div>
-                    <div id="Two">
+                    <div id="Two" data-product-id="10">
                         <img id="p" src="images/matcha.jpg"><br>
-                        <img id="n" src="images/coffee.gif">
                         <span>Myra's Matcha Blend</span>
                         <p><strong>200 Php</strong></p>
                         <button>Order</button>
                     </div>
-                    <div id="Three">
+                    <div id="Three" data-product-id="11">
                         <img id="p" src="images/teabblue.jpg"><br>
-                        <img id="n" src="images/coffee.gif">
                         <span>Lune's Special Earl Grey</span>
                         <p><strong>200 Php</strong></p>
                         <button>Order</button>
                     </div>
-                    <div id="Four">
+                    <div id="Four" data-product-id="12">
                         <img id="p" src="images/chai.jpg"><br>
-                        <img id="n" src="images/coffee.gif">
                         <span>Yuyu's Cozy Karak Chai</span>
                         <p><strong>200 Php</strong></p>
                         <button>Order</button>
@@ -160,7 +152,10 @@
                     </div>
                     
                 </div>
+                
             </footer>
+            <script src="snack.js"></script>
+            <script src="cart.js"></script>
             
         </div>
     </body>

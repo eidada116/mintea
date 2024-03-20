@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <title>MINITEA SNACKS</title>
+        <link rel="stylesheet" href="contactstyle.css" type="text/css" media="all">
+        <style>
+            #contain{
+                margin: auto;
+                width:50%;
+                padding: 10px;
+                background-color: #f0e2dd;
+                border:#683d39 5px dashed;
+                overflow: hidden;
+            }
+            table{
+                margin:auto;
+                width:90%;
+                border: #683d39 2px solid
+            }
+            th{
+                text-align: center;
+                color:#f0e2dd;
+                background-color: #683d39;
+            }
+            td{
+                text-align: center;
+                padding:10px;
+                color:#f0e2dd;
+                background-color: #75271e;
+            }
+            h1{
+                text-align: center;
+            }
+            label{
+                padding-right: 20px;
+                margin:auto;
+                width:50%;
+                padding:5px
+            }
+            #field{
+                display:flex;
+                margin:auto;
+                width:50%;
+            }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+            
+             $(document).ready(function(){
+                function calculateTotalAmount() {
+                    var totalPrice = 0;
+                    $.ajax({
+                        url: "get_cart_items.php",
+                        type: "GET",
+                        dataType: "json",
+                        success: function(data){
+                            $.each(data, function(index, item) {
+                                totalPrice += parseFloat(item.productPrice);
+                            });
+                            $("#totalAmount").text(totalPrice.toFixed(2) + " Php");
+                        },
+                        error: function(){
+                            alert("Error: Unable to fetch cart items.");
+                        }
+                    });
+                }
+                calculateTotalAmount();
+
+            function validateForm() {
+                var isValid = true;
+                $('form input, form select').each(function() {
+                    if (!$(this).val()) {
+                        isValid = false;
+                        return false; 
+                    }
+                });
+
+                if (!isValid) {
+                    alert("Please fill out all fields.");
+                }
+
+                return isValid; 
+            }
+
+            function handleFormSubmit() {
+                if (validateForm()) {
+                    done();
+                }
+            }
+
+            $('#finishButton').click(handleFormSubmit);
+        });
+
+        
+        function done() {
+            alert("Successfully Ordered! Thank you for choosing Minitea!");
+            window.location.href = "index.html"; 
+        }
+        </script>
+    </head>
+    <body>
+        <div class="header">
+         
+            <h2><span style="color:#75271e">Minitea</span> & Snacks</h2>
+            
+            <!--MENU RIBBON-->
+            <div class="ribbon">
+                <a href="index.html" style="color:#75271e;">Home</a>
+                <a href="snacks.html">Order</a>
+                <a href="contact.html">Contact</a>
+                <a href="about.html">About</a>
+                <a href="logine.php">Log in</a>
+            </div>
+        </div>
+        
+        <div id="contain">
+            <h3>YOUR TOTAL: <span id="totalAmount"></span></h3>
+            <form>
+                <label>Full Name:</label>
+                <input type="text" id="field" placeholder="*Name"required><br>
+                <label>Email Address:</label>
+                <input type="email" id="field" placeholder="*Email"required><br>
+                <label>Phone Number:</label>
+                <input type="text" id="field" placeholder="*Number" required><br>
+                <label>Address:</label>
+                <input type="text" id="field" placeholder="*Address" required><br><br>
+                <label>Payment Type:</label>
+                <select required>
+                    <option value="gcash">Gcash</option>
+                    <option value="mastercard">Mastercard</option>
+                    <option value="bdo">Bdo</option>
+                    <option value="cash">Cash on Delivery</option>
+                </select><br><br><br>
+                <button id="finishButton" style="width:90px">Finish</button>
+            </form>
+        </div>
+       
+        
+        
+    </body>
+</html>

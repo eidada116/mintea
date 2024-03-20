@@ -152,3 +152,11 @@ button{
   margin-bottom: 20px;
   margin-top: 20px;
 }
+.contain{
+  margin: auto;
+  width:50%;
+  padding: 10px;
+  background-color: #f0e2dd;
+  border:#683d39 5px dashed;
+  overflow: hidden;
+}
