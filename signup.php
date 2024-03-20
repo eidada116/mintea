@@ -25,7 +25,7 @@ $sql = "INSERT INTO `profile` (`uname`, `password`, `firstname`, `lastname`, `mo
 $rs = mysqli_query($con, $sql);
 
 if ($rs) {
-    echo '<script>alert("Sign in Successful!"); window.location="login.html";</script>';
+    echo '<script>alert("Sign in Successful!"); window.location="logine.php";</script>';
     exit(); 
 } else {
     echo "Error: " . $sql . "<br>" . mysqli_error($con);
