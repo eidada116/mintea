@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 06, 2024 at 10:30 AM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Generation Time: Mar 20, 2024 at 01:53 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,48 @@ SET time_zone = "+00:00";
 --
 -- Database: `minitea`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cart`
+--
+
+CREATE TABLE `cart` (
+  `productID` int(11) NOT NULL,
+  `productName` varchar(255) NOT NULL,
+  `productPrice` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `products`
+--
+
+CREATE TABLE `products` (
+  `productID` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `price` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `products`
+--
+
+INSERT INTO `products` (`productID`, `name`, `price`) VALUES
+(1, 'Cheesecake Bites', 250),
+(2, 'Macarons', 200),
+(3, 'Cookies', 200),
+(4, 'Chocolate Bites', 230),
+(5, 'Custard Buns', 200),
+(6, 'Chocolate Bark', 250),
+(7, 'Matcha Mochi', 150),
+(8, 'Melon Pan', 300),
+(9, 'Lemon Tea Blend', 200),
+(10, 'Matcha Tea Blend', 200),
+(11, 'Earl Grey Tea Blend', 200),
+(12, 'Karak Chai Blend', 200);
 
 -- --------------------------------------------------------
 
@@ -52,6 +94,12 @@ INSERT INTO `profile` (`userid`, `uname`, `password`, `firstname`, `lastname`, `
 --
 
 --
+-- Indexes for table `products`
+--
+ALTER TABLE `products`
+  ADD PRIMARY KEY (`productID`);
+
+--
 -- Indexes for table `profile`
 --
 ALTER TABLE `profile`
@@ -60,6 +108,12 @@ ALTER TABLE `profile`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `products`
+--
+ALTER TABLE `products`
+  MODIFY `productID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `profile`
