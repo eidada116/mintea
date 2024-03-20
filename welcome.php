@@ -36,19 +36,6 @@ if (!isset($_SESSION['uname'])) {
 <body>
     
 
-<div class="cart-icon">
-    <a href="cart.html"><img src="images/cart_logo.png" alt="Shopping Cart"></a>
-    <div class="cart-count" id="cartCount">0</div>
-</div>
-
-<div class="cart-overlay" id="cartOverlay">
-    <div class="cart-content">
-        <h3>Shopping Cart</h3>
-        <ul id="cartItems">
-        </ul>
-    </div>
-</div>
-
 <div class="header">
     <h2><span style="color:#75271e">Minitea</span> & Snacks</h2>
     <!--MENU RIBBON-->
