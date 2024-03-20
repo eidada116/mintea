@@ -37,6 +37,7 @@ h2{
 }
 
 
+
 .snacks #p{
     width:150px;
     height: 150px;
@@ -47,9 +48,8 @@ h2{
 
 .snacks{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     text-align: center;
-    justify-content: center;
     margin: auto;
     width:80%;
 }
@@ -57,10 +57,10 @@ h2{
     border:  #683d39 4px dashed;
     margin: 20px;
     padding:30px;
-    background-color: #946c5c;
+    background-color: #946c5c
+    ;
     border-radius: 30px;
 }
-
 
 #n{
     width:20px;
@@ -160,7 +160,11 @@ button{
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
 }
 
-
+.top{
+    margin:auto;
+    display:flex;
+    flex-direction: column;
+}
 .cart-icon {
     position: fixed;
     bottom: 20px;
